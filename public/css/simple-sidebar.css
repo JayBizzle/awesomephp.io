@@ -88,11 +88,12 @@ body {
 .sidebar-nav > .sidebar-brand {
     height: 65px;
     font-size: 18px;
+    font-weight:700;
     line-height: 60px;
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color: #333;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
