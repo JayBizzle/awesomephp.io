@@ -16,19 +16,10 @@ function markdown($text) {
 }
 
 $app->get('/', function () use ($app) {
-	// get menu content
-	$menu = file(base_path().'/resources/content/menu.md');
-	sort($menu);
-
-    return view('index', ['menu' => $menu, 'section' => 'woop']);
+    return view('index', ['section' => 'woop']);
 });
 
 $app->get('/{section}', function ($section) use ($app) {
-	// get menu content
-	$menu = file(base_path().'/resources/content/menu.md');
-	sort($menu);
-
 	$content = file_get_contents(base_path().'/resources/content/'.$section.'.md');
-
-    return view('index', ['menu' => $menu, 'section' => $content]);
+    return view('index', ['section' => $content]);
 });
