@@ -21,7 +21,7 @@ $app = new Laravel\Lumen\Application(
 
 $app->register('App\Providers\UpdateServiceProvider');
 
-// $app->withFacades();
+$app->withFacades();
 
 // $app->withEloquent();
 
