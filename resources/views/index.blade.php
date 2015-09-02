@@ -11,7 +11,7 @@
 
     <title>Awesome PHP - A curated list of amazingly awesome PHP libraries, resources and shiny things.</title>
 
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,16 +30,14 @@
 
 <body>
 
+    <div class="header">
+        Awesome PHP
+    </div>
     <div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Awesome PHP
-                    </a>
-                </li>
                 @foreach($menu as $item)
                     <li><a href="{{ preg_replace("/[^A-Za-z0-9]/", '', $item) }}">{{ $item }}</a></li>
                 @endforeach
@@ -51,9 +49,9 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 main-content">
                         {!! markdown($section) !!}
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        {{-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> --}}
                     </div>
                 </div>
             </div>
