@@ -36,7 +36,7 @@
             <div id="header">
                 <div id="header-content-right">
                     <a href="/">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="#">Contribute <i class="fa fa-github"></i></a>
+                    <a href="https://github.com/ziadoz/awesome-php" target="_blank">Contribute <i class="fa fa-github"></i></a>
                 </div>
                 <div id="header-content">Awesome PHP</div>
             </div>
@@ -56,7 +56,7 @@
         </div>
         <div id="footer">
             <div id="footer-content">
-                built with <i class="fa fa-heart"></i> by <a href="#">JayBizzle</a>
+                built with <i class="fa fa-heart"></i> by <a href="https://github.com/JayBizzle" target="_blank">JayBizzle</a>
             </div>
         </div>
 
