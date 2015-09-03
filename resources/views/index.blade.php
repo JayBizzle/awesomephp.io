@@ -35,6 +35,7 @@
         <div id="wrapper">
             <div id="header">
                 <div id="header-content-right">
+                    <a href="/">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="#">Contribute <i class="fa fa-github"></i></a>
                 </div>
                 <div id="header-content">Awesome PHP</div>
