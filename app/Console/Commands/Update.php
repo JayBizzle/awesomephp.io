@@ -81,8 +81,15 @@ class Update extends Command
             mkdir('resources/content/');
         }
 
+        $menu = fopen('resources/content/menu.md', "wb") or die("Unable to open file!");
+
         foreach($data as $d) {
-            $file = fopen('resources/content/'.preg_replace("/[^A-Za-z0-9]/", '', $d['name']).".md", "w") or die("Unable to open file!");
+            $section_name = $this->cleanFileName($d['name']);
+
+            $file = fopen("resources/content/$section_name.md", "wb") or die("Unable to open file!");
+
+            fwrite($menu, substr(trim($d['name']), 3)."\n");  
+
             fwrite($file, $d['name']."\n");
             fwrite($file, $d['description']."\n");
             sort($d['links']);
@@ -93,10 +100,12 @@ class Update extends Command
         }
 
         // write menu
-        $file = fopen('resources/content/menu.md', "w") or die("Unable to open file!");
-        foreach($data as $d) {
-            fwrite($file,  substr($d['name'], 3)."\n");  
-        }
-        fclose($file);
+
+        fclose($menu);
+    }
+
+    public function cleanFileName($name)
+    {
+        return preg_replace("/[^A-Za-z0-9]/", '-', ltrim($name, '## '));
     }
 }
