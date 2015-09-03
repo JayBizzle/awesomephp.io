@@ -16,10 +16,10 @@ function markdown($text) {
 }
 
 $app->get('/', function () use ($app) {
-    return view('index', ['section' => 'woop']);
+    return view('index', ['content' => 'woop', 'section' => null]);
 });
 
 $app->get('/{section}', function ($section) use ($app) {
 	$content = file_get_contents(base_path().'/resources/content/'.$section.'.md');
-    return view('index', ['section' => $content]);
+    return view('index', ['content' => $content, 'section' => $section]);
 });

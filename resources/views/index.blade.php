@@ -41,12 +41,12 @@
             </div>
             <div id="content">
                 <div id="main">
-                    {!! markdown($section) !!}
+                    {!! markdown($content) !!}
                 </div>
                 <div id="sidebar">
                     <ul class="sidebar-nav">
                         @foreach($menu as $item)
-                            <li><a href="{{ preg_replace("/[^A-Za-z0-9]/", '-', $item) }}">{{ $item }}</a></li>
+                            <li><a href="{{ preg_replace("/[^A-Za-z0-9]/", '-', $item) }}" @if($section == preg_replace("/[^A-Za-z0-9]/", '-', $item)) class="active" @endif>{{ $item }}</a></li>
                         @endforeach
                     </ul>
                 </div>

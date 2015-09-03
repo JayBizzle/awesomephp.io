@@ -113,6 +113,10 @@ html, body {
                 color: #3d3c3a;
             }
 
+            #sidebar li a.active {
+                font-weight: 700;
+            }
+
 #main {
     margin-right: 355px
 }
