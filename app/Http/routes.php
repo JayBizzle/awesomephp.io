@@ -16,10 +16,13 @@ function markdown($text) {
 }
 
 $app->get('/', function () use ($app) {
+	$content = file_get_contents(base_path().'/README.md');
+
 	if(app('request')->header('X-PJAX')) {
-		return 'woop';
+		return markdown($content);
 	}
-    return view('index', ['content' => 'woop', 'section' => null]);
+
+    return view('index', ['content' => $content, 'section' => null]);
 });
 
 $app->get('/{section}', function ($section) use ($app) {
