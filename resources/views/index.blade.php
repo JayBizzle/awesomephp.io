@@ -56,7 +56,7 @@
         </div>
         <div id="footer">
             <div id="footer-content">
-                built with <i class="fa fa-heart"></i> by <a href="https://github.com/JayBizzle" target="_blank">JayBizzle</a>
+                built with <i class="fa fa-heart"></i> by <a href="https://github.com/JayBizzle/awesomephp.io" target="_blank">JayBizzle</a>
             </div>
         </div>
 
