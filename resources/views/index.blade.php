@@ -65,5 +65,20 @@
 
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
+
+        <script src="js/jquery.pjax.js"></script>
+
+        <script type="text/javascript">
+            $(document).pjax('a, a.home', '#main');
+
+            $(document).on('pjax:click', function() {
+              $(this).parent().addClass('active');
+            });
+
+            $(document).on('pjax:end', function() {
+                ga('set', 'location', window.location.href);
+                ga('send', 'pageview');
+            });
+        </script>
     </body>
 </html>
