@@ -73,11 +73,13 @@
 
             $(document).on('pjax:click', function() {
               $(this).parent().addClass('active');
+              $('#main').css({'opacity': 0, 'left': -10});
             });
 
             $(document).on('pjax:end', function() {
                 ga('set', 'location', window.location.href);
                 ga('send', 'pageview');
+                $('#main').animate({'opacity': 1, 'left': 0 }, 300);
             });
 
             $(document).ready(function() {

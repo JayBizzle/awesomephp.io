@@ -123,7 +123,8 @@ html, body {
             }
 
 #main {
-    margin-right: 355px
+    margin-right: 355px;
+    position: relative;
 }
 
     #main h2 {
