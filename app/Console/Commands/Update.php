@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 class Update extends Command
 {
 
-    public $source = 'https://raw.githubusercontent.com/ziadoz/awesome-php/master/README.md?';
+    public $source = 'https://raw.githubusercontent.com/ziadoz/awesome-php/master/README.md';
 
     /**
      * The console command name.
