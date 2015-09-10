@@ -167,6 +167,7 @@ html, body {
 @media (max-width: 767px) {
     #header {
         height: auto;
+        padding: 20px;
     }
 
     #header-content {
@@ -176,6 +177,14 @@ html, body {
 
     #header-content-right {
         display: none;
+    }
+
+    #content {
+        padding: 20px;
+    }
+
+    #footer-content {
+        padding: 0 20px;
     }
 
     #sidebar {
