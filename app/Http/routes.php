@@ -11,26 +11,27 @@
 |
 */
 
-function markdown($text) {
-	return (new ParsedownExtra)->text($text);
+function markdown($text)
+{
+    return (new ParsedownExtra)->text($text);
 }
 
 $app->get('/', function () use ($app) {
-	$content = file_get_contents(base_path().'/README.md');
+    $content = file_get_contents(base_path().'/README.md');
 
-	if(app('request')->header('X-PJAX')) {
-		return markdown($content);
-	}
+    if (app('request')->header('X-PJAX')) {
+        return markdown($content);
+    }
 
     return view('index', ['content' => $content, 'section' => null]);
 });
 
 $app->get('/{section}', function ($section) use ($app) {
-	$content = file_get_contents(base_path().'/resources/content/'.$section.'.md');
+    $content = file_get_contents(base_path().'/resources/content/'.$section.'.md');
 
-	if(app('request')->header('X-PJAX')) {
-		return markdown($content);
-	}
-	
+    if (app('request')->header('X-PJAX')) {
+        return markdown($content);
+    }
+
     return view('index', ['content' => $content, 'section' => $section]);
 });

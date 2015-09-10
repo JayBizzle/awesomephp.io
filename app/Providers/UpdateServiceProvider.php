@@ -7,7 +7,6 @@ use App\Console\Commands\Update;
 
 class UpdateServiceProvider extends ServiceProvider
 {
-
     /**
      * Register any application services.
      *
@@ -15,8 +14,7 @@ class UpdateServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('command.update', function()
-        {
+        $this->app->singleton('command.update', function () {
             return new Update;
         });
 
