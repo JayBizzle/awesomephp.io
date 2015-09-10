@@ -6,7 +6,6 @@ use Illuminate\Console\Command;
 
 class Update extends Command
 {
-
     public $source = 'https://raw.githubusercontent.com/ziadoz/awesome-php/master/README.md';
 
     /**
@@ -48,25 +47,24 @@ class Update extends Command
         $i = 0;
         $prev = $i;
 
-        foreach($lines as $line) {
+        foreach ($lines as $line) {
             $line = trim($line);
-            
-            if(substr($line, 0, 3) == '## ') {
-                if($line != '## Contributing' && $line != '## Table of Contents') {
+
+            if (substr($line, 0, 3) == '## ') {
+                if ($line != '## Contributing' && $line != '## Table of Contents') {
                     $sections[$i]['name'] = $line;
                     $ignore = false;
                 } else {
                     $ignore = true;
                 }
                 $prev = $i;
-                
-            } elseif(substr($line, 0, 1) == '*' && substr($line, 0, 2) != '* ') {
+            } elseif (substr($line, 0, 1) == '*' && substr($line, 0, 2) != '* ') {
                 // must be a section descriptions
                 $sections[$prev]['description'] = $line;
                 $prev = $i;
                 ++$i;
             } else {
-                if(! $ignore && !empty($line) && substr($line, 0, 2) != '# ' && substr($line, 0, 1) == '*') {
+                if (! $ignore && ! empty($line) && substr($line, 0, 2) != '# ' && substr($line, 0, 1) == '*') {
                     $sections[$prev]['links'][] = $line;
                 }
             }
@@ -77,23 +75,23 @@ class Update extends Command
 
     public function writeFiles($data)
     {
-        if(! is_dir('resources/content/')) {
+        if (! is_dir('resources/content/')) {
             mkdir('resources/content/');
         }
 
-        $menu = fopen('resources/content/menu.md', "wb") or die("Unable to open file!");
+        $menu = fopen('resources/content/menu.md', 'wb') or die('Unable to open file!');
 
-        foreach($data as $d) {
+        foreach ($data as $d) {
             $section_name = $this->cleanFileName($d['name']);
 
-            $file = fopen("resources/content/$section_name.md", "wb") or die("Unable to open file!");
+            $file = fopen("resources/content/$section_name.md", 'wb') or die('Unable to open file!');
 
-            fwrite($menu, substr(trim($d['name']), 3)."\n");  
+            fwrite($menu, substr(trim($d['name']), 3)."\n");
 
             fwrite($file, $d['name']."\n");
             fwrite($file, $d['description']."\n");
             sort($d['links']);
-            foreach($d['links'] as $l) {
+            foreach ($d['links'] as $l) {
                 fwrite($file, $l."\n");
             }
             fclose($file);
@@ -106,6 +104,6 @@ class Update extends Command
 
     public function cleanFileName($name)
     {
-        return preg_replace("/[^A-Za-z0-9]/", '-', ltrim($name, '## '));
+        return preg_replace('/[^A-Za-z0-9]/', '-', ltrim($name, '## '));
     }
 }
