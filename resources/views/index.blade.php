@@ -34,6 +34,13 @@
     <body>
         <div id="wrapper">
             <div id="header">
+                <div class="pull-right visible-xs">
+                    <div class="menu menu-btn" id="menu-btn">
+                        <span class="menu-global menu-top"></span>
+                        <span class="menu-global menu-middle"></span>
+                        <span class="menu-global menu-bottom"></span>
+                    </div>
+                </div>
                 <div id="header-content-right">
                     <a href="/" class="home">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="https://github.com/ziadoz/awesome-php" target="_blank">Contribute <i class="fa fa-github"></i></a>
@@ -79,6 +86,11 @@
             $(document).on('pjax:end', function() {
                 ga('set', 'location', window.location.href);
                 ga('send', 'pageview');
+
+                if ($(window).width() < 767) {
+                    $('#sidebar').slideToggle('fast');
+                }
+                
                 $('#main').animate({'opacity': 1, 'left': 0 }, 300);
             });
 
@@ -87,6 +99,42 @@
                     $('.sidebar-nav a').removeClass('active');
                     $(this).addClass('active');
                 });
+
+                $('.menu-btn').on('click', function() {
+                    $('#sidebar').slideToggle('fast');
+                });
+
+                var Menu = {
+                    el: {
+                        ham: $('.menu'),
+                        menuTop: $('.menu-top'),
+                        menuMiddle: $('.menu-middle'),
+                        menuBottom: $('.menu-bottom')
+                    },
+              
+                    init: function() {
+                        Menu.bindUIactions();
+                    },
+              
+                    bindUIactions: function() {
+                        Menu.el.ham
+                            .on(
+                                'click',
+                                function(event) {
+                                    Menu.activateMenu(event);
+                                    event.preventDefault();
+                            }
+                        );
+                    },
+              
+                    activateMenu: function() {
+                        Menu.el.menuTop.toggleClass('menu-top-click');
+                        Menu.el.menuMiddle.toggleClass('menu-middle-click');
+                        Menu.el.menuBottom.toggleClass('menu-bottom-click'); 
+                    }
+                };
+
+                Menu.init();
             });
         </script>
 

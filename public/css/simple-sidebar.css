@@ -162,3 +162,84 @@ html, body {
         display: inline-block;
         font-size: 20px;
     }
+
+
+@media (max-width: 767px) {
+    #header {
+        height: auto;
+    }
+
+    #header-content {
+        font-size: 1.5em;
+        font-weight:500;
+    }
+
+    #header-content-right {
+        display: none;
+    }
+
+    #sidebar {
+        display: none;
+        border-left: none;
+        width: 100%;
+        background: #fff;
+    }
+
+        #sidebar ul {
+            padding: 0;
+        }
+
+    #main {
+        margin-right: 0;
+    }
+
+    /* mobile burger menu */
+    .menu {
+        cursor: pointer;
+        margin: 0 auto;
+        padding-left: 1.25em;
+        position: relative;
+        width: 26px;
+        height: 25px;
+        margin-top: 2px;
+    }
+
+    .menu-global {
+        backface-visibility: hidden;
+        position: absolute;
+        left: 0;
+        border-top: 4px solid white;
+        width: 100%;
+        transition: 0.55s;
+    }
+
+    .menu-top {
+        top: 0;
+    }
+
+    .menu-middle {
+        top: 9px;
+    }
+
+    .menu-bottom {
+        top: 18px;
+    }
+
+    .menu-top-click {
+        backface-visibility: hidden;
+        top: 8px;
+        transform: rotate(45deg);
+        transition: 0.55s 0.5s;
+    }
+
+    .menu-middle-click {
+        opacity: 0;
+    }
+
+    .menu-bottom-click {
+        backface-visibility: hidden;
+        top: 8px;
+        transform: rotate(-405deg);
+        transition: 0.55s 0.5s;
+    }
+}
